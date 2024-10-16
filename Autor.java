@@ -1,6 +1,13 @@
 public class Autor extends Pessoa {
     private String nacionalidade;
-    
+    private Livro[] obras_publicadas;
+    private boolean autor_ou_usuario;
+
+    public Autor(String nome, String nacionalidade, boolean autor_ou_usuario) {
+        this.setNome(nome);
+        this.nacionalidade = nacionalidade;
+        this.autor_ou_usuario = autor_ou_usuario;
+    }
     public String getNacionalidade() {
         return nacionalidade;
     }
@@ -8,8 +15,6 @@ public class Autor extends Pessoa {
     public void setNacionalidade(String nacionalidade) {
         this.nacionalidade = nacionalidade;
     }
-
-    private Livro[] obras_publicadas;
 
     public Livro[] getObras_Publicadas() {
         return obras_publicadas;
@@ -19,31 +24,19 @@ public class Autor extends Pessoa {
         this.obras_publicadas = obras_publicadas;
     }
 
-    public Livro[] getObras_Publicadas_Por_Genero(String genero) {
-        return obras_publicadas_por_genero;
-    }
-
-    public void setObras_Publicadas_Por_Genero( Livro[] obras_publicadas_por_genero) {
-        this.obras_publicadas_por_genero = obras_publicadas_por_genero;
-    }
-
-
-
-    private boolean autor_ou_usuario;
-
     public boolean isAutor_ou_Usuario() {
         return autor_ou_usuario;
     }
 
     public void setAutor_ou_Usuario(boolean autor_ou_usuario) {
-        this.usuario = autor_ou_usuario;
+        this.autor_ou_usuario = autor_ou_usuario;
     }
 
     public void Definindo_autor() {
-        if(usuario == true) {
-            System.out.println( "O autor é usuario, publicando artigos." );
+        if (autor_ou_usuario) {
+            System.out.println("O autor é usuário, publicando artigos.");
         } else {
-            System.out.println( "O autor publica livros." );
+            System.out.println("O autor publica livros.");
         }
     }
 }
